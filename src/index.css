@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .sidebar-icon {
+        @apply relative flex mt-2 mb-2 ml-3 mr-3 bg-white hover:bg-gray-200 rounded;
+    }
+}
+.icon-text {
+    margin-left: 20px; /* Adjust the margin as needed */
+    margin-right: 10px;
+}
