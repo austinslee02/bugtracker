@@ -1,6 +1,8 @@
 import { gql, useQuery } from '@apollo/client';
 
-const GET_PROJECTS = gql`
+const ProjectTable = ({ setCurrPage, setCurrProject }) => {
+    
+    const GET_PROJECTS = gql`
     query GetProjects {
         projects {
         id
@@ -16,18 +18,20 @@ const GET_PROJECTS = gql`
         }
         }
     }
-`
+    `
+    const handleEditClick = (project) => {
+        setCurrPage("ProjectDisplay");
+        setCurrProject(project);
+      };
+      const { loading, error, data } = useQuery(GET_PROJECTS);
+  
+      if (loading) return <p className="text-center">Loading...</p>;
+      if (error) return <p className="text-center text-red-600">Error: {error.message}</p>;
 
-function ProjectTable() {
-    const { loading, error, data } = useQuery(GET_PROJECTS);
-  
-    if (loading) return <p className="text-center">Loading...</p>;
-    if (error) return <p className="text-center text-red-600">Error: {error.message}</p>;
-  
-    const projects = data.projects;
+      const projects = data.projects;
   
     return (
-      <div class="max-w-screen-2xl  relative overflow-x-auto sm:rounded-lg ml-52 mt-8">
+      <div class="max-w-screen-2xl  relative overflow-x-auto sm:rounded-lg ml-56 mt-8">
         <table class="w-full text-sm text-left text-black">
           <thead class="text-xs text-gray-700 uppercase bg-blue-300">
             <tr>
@@ -76,7 +80,7 @@ function ProjectTable() {
                   </ul>
                 </td>
                 <td class="px-6 py-4">
-                  <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+                  <a href="#" class="font-medium text-blue-600 hover:underline" onClick={() => handleEditClick(project)}>Edit</a>
                 </td>
               </tr>
             ))}
