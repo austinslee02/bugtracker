@@ -1,0 +1,42 @@
+type User {
+  id: ID!
+  name: String
+  email: String
+}
+
+type Ticket {
+  id: ID!
+  title: String
+  description: String
+  project: Project
+}
+
+type Project {
+  id: ID!
+  name: String
+  description: String
+  users: [User]
+  tickets: [Ticket]
+}
+
+input UserInput {
+  id: ID
+  name: String
+  email: String
+}
+
+input ProjectInput {
+  name: String
+  description: String
+  users: [UserInput]
+}
+
+type Query {
+  projects: [Project]
+  tickets: [Ticket]
+  users: [User]
+}
+
+type Mutation {
+  addProject(input: ProjectInput): Project
+}

@@ -3,6 +3,7 @@ import ProjectDisplay from './components/ProjectDisplay';
 import ProjectTable from './components/ProjectTable';
 import SideBar from './components/SideBar';
 import NavBar from './components/NavBar';
+import CreateProject from './components/CreateProject';
 
 
 const MainPage = () => {
@@ -12,7 +13,7 @@ const MainPage = () => {
     return (
         <page> 
             <NavBar />
-            <SideBar />
+            <SideBar setCurrPage={setCurrPage}/>
             {currPage == "ProjectTable" && (
                 <ProjectTable 
                     setCurrPage={setCurrPage}
@@ -23,6 +24,9 @@ const MainPage = () => {
                 <ProjectDisplay 
                     project={selectedProject} 
                     setCurrPage={setCurrPage}/>
+            )}
+            {currPage == "CreateProject" && (
+                <CreateProject />
             )}
         </page>
     );

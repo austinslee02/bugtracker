@@ -31,6 +31,22 @@ const typeDefs = `
     tickets: [Ticket]
     users: [User]
   }
+
+  input UserInput {
+    id: ID
+    name: String
+    email: String
+  }
+  
+  input ProjectInput {
+    name: String
+    description: String
+    users: [UserInput]
+  }
+
+  type Mutation {
+    addProject(input: ProjectInput): Project
+  }
 `;
 
 const projects = [

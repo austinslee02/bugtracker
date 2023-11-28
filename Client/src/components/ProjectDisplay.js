@@ -4,7 +4,7 @@ const ProjectDisplay = ({ project, setCurrPage }) => {
   };
     
     return (
-        <div class = "ml-52 mt-8 bg-blue-200 max-w-screen-2xl sm:rounded-lg">
+        <div class = "mx-auto mt-8 bg-blue-200 max-w-screen-2xl sm:rounded-lg">
           <h2 className="text-xl font-semibold">{project.name}</h2>
           <p className="text-gray-600">{project.description}</p>
     

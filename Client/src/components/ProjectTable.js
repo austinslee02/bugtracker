@@ -31,7 +31,7 @@ const ProjectTable = ({ setCurrPage, setCurrProject }) => {
       const projects = data.projects;
   
     return (
-      <div class="max-w-screen-2xl  relative overflow-x-auto sm:rounded-lg ml-56 mt-8">
+      <div class="max-w-screen-2xl  relative overflow-x-auto sm:rounded-lg mx-auto mt-8">
         <table class="w-full text-sm text-left text-black">
           <thead class="text-xs text-gray-700 uppercase bg-blue-300">
             <tr>
